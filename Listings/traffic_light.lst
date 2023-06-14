@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  TRAFFIC_LIGHT                                                        06/14/2023 18:55:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\traffic_light.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE traffic_light.a51 SET(SMALL) DEBUG PRINT(.\Listings\traffic_light.lst) 
+                      OBJECT(.\Objects\traffic_light.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 00h
+0000                   2     START:
+0000 D290              3                     SETB P1.0;
+0002 C291              4                     CLR P1.1;
+0004 C292              5                     CLR P1.2;
+                       6                     
+0006 D295              7                     SETB P1.5;
+0008 C294              8                     CLR P1.4;
+000A C293              9                     CLR P1.3;
+                      10                     
+                      11                     
+000C 113A             12                     ACALL DELAY
+000E 113A             13                     ACALL DELAY
+0010 113A             14                     ACALL DELAY
+0012 113A             15                     ACALL DELAY
+                      16                     
+0014 C290             17                     CLR P1.0;
+0016 D291             18                     SETB P1.1;
+0018 C292             19                     CLR P1.2;
+                      20                     
+001A C295             21                     CLR P1.5;
+001C D294             22                     SETB P1.4;
+001E C293             23                     CLR P1.3;
+                      24                     
+0020 113A             25                     ACALL DELAY
+0022 113A             26                     ACALL DELAY
+                      27                     
+0024 C290             28                     CLR P1.0
+0026 C291             29                     CLR P1.1
+0028 D292             30                     SETB P1.2
+                      31                     
+002A C295             32                     CLR P1.5;
+002C C294             33                     CLR P1.4;
+002E D293             34                     SETB P1.3;
+                      35                     
+0030 113A             36                     ACALL DELAY
+0032 113A             37                     ACALL DELAY
+0034 113A             38                     ACALL DELAY
+0036 113A             39                     ACALL DELAY 
+                      40                     
+0038 80C6             41                     SJMP START
+                      42     
+003A                  43     DELAY:  
+003A 7CFF             44                     MOV R4,#0FFh;
+003C 7DFF             45                     MOV R5,#0FFh;
+003E 7EFF             46                     MOV R6,#0FFh;
+0040 7FFF             47                     MOV R7, #0FFh;
+0042 79FF             48                     MOV R1, #0FFh;
+0044                  49     LOOP1:
+0044 DCFE             50                     DJNZ R4, LOOP1;
+0046                  51     LOOP2:  
+0046 DDFE             52                     DJNZ R5, LOOP2;
+0048                  53     LOOP3:
+0048 DEFE             54                     DJNZ R6, LOOP3;
+004A                  55     LOOP4:
+004A DFFE             56                     DJNZ R7, LOOP4;
+004C                  57     LOOP5:
+A51 MACRO ASSEMBLER  TRAFFIC_LIGHT                                                        06/14/2023 18:55:44 PAGE     2
+
+004C DDFE             58                     DJNZ R5, LOOP5;
+004E 22               59                     RET
+                      60                     
+*** WARNING #A41 IN 60 (traffic_light.a51, LINE 60): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  TRAFFIC_LIGHT                                                        06/14/2023 18:55:44 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003AH   A   
+LOOP1. . . . . . .  C ADDR   0044H   A   
+LOOP2. . . . . . .  C ADDR   0046H   A   
+LOOP3. . . . . . .  C ADDR   0048H   A   
+LOOP4. . . . . . .  C ADDR   004AH   A   
+LOOP5. . . . . . .  C ADDR   004CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
